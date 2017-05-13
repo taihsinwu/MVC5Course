@@ -14,12 +14,12 @@ namespace MVC5Course.Controllers
     public class ProductsController : Controller
     {
         ProductRepository repo = RepositoryHelper.GetProductRepository();
-        private FabricsEntities db = new FabricsEntities();
+        //private FabricsEntities db = new FabricsEntities();
 
         // GET: Products
         public ActionResult Index(bool Active = true)
         {
-            var data = repo.GetAllData(Active, showAll: true);
+            var data = repo.GetAllData(Active, showAll: true).Take(10);
 
             //var data = db.Product
             //    .Where(p => p.Active.HasValue && p.Active.Value == Active)
@@ -93,7 +93,8 @@ namespace MVC5Course.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
+                //db.Entry(product).State = EntityState.Modified;
+                repo.Update(product);
                 repo.UnitOfWork.Commit();
                 return RedirectToAction("Index");
             }
@@ -126,26 +127,17 @@ namespace MVC5Course.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                //db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         public ActionResult ListProducts()
         {
-            var data = repo.All().Where(p => p.Active == true)
+            var data = repo.GetAllData(true)
                                  .Select(p => new ProductLiteVM()
                                  {
                                      ProductID = p.ProductId,
                                      ProductName = p.ProductName,
                                      Price = p.Price,
                                      Stock = p.Stock
-                                 }).Take(10);
-                                 //.OrderByDescending(p => p.ProductID);
+                                 }).Take(10)
+                                 .OrderByDescending(p => p.ProductID);
             return View(data);
         }
 
