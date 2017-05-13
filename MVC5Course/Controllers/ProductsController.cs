@@ -154,6 +154,7 @@ namespace MVC5Course.Controllers
             if (ModelState.IsValid)
             {
                 //儲存資料進資料庫
+                TempData["CreateProduct_Result"] = "新增成功嚕";
                 return RedirectToAction("ListProducts");
             }
             //驗證失敗，繼續顯示原本的表單
