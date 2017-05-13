@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace MVC5Course.Controllers
 {
-    public class EFController : Controller
+    public class EFController : BaseController
     {
         FabricsEntities db = new FabricsEntities();
         // GET: EF

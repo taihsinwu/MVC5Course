@@ -11,7 +11,7 @@ using MVC5Course.Models.ViewModels;
 
 namespace MVC5Course.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductsController : BaseController
     {
         ProductRepository repo = RepositoryHelper.GetProductRepository();
         //private FabricsEntities db = new FabricsEntities();
@@ -19,7 +19,7 @@ namespace MVC5Course.Controllers
         // GET: Products
         public ActionResult Index(bool Active = true)
         {
-            var data = repo.GetAllData(Active, showAll: true).Take(10);
+            var data = repo.GetAllData(Active, showAll: false).OrderByDescending(p => p.ProductId).Take(10);
 
             //var data = db.Product
             //    .Where(p => p.Active.HasValue && p.Active.Value == Active)
@@ -122,6 +122,9 @@ namespace MVC5Course.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Product product = repo.GetOneDataById(id);
+
+            repo.UnitOfWork.Context.Configuration.ValidateOnSaveEnabled = false; //不須驗證
+
             repo.Delete(product);
             repo.UnitOfWork.Commit();
             return RedirectToAction("Index");

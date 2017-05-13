@@ -49,6 +49,11 @@ namespace MVC5Course.Models
         {
             this.UnitOfWork.Context.Entry(product).State = EntityState.Modified;
         }
+
+        public override void Delete(Product entity)
+        {
+            entity.IsDeleted = true;
+        }
     }
 
 	public  interface IProductRepository : IRepository<Product>
