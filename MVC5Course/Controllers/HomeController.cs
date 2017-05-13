@@ -57,5 +57,10 @@ namespace MVC5Course.Controllers
         {
             return View();
         }
+
+        public ActionResult GetFile()
+        {
+            return File(Server.MapPath("~/Content/highlight.jpg"),"image/png","HighLight.png");
+        }
     }
 }
