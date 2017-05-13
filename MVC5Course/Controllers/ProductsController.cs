@@ -130,18 +130,25 @@ namespace MVC5Course.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult ListProducts()
+        public ActionResult ListProducts(string query)
         {
-            var data = repo.GetAllData(true)
-                                 .Select(p => new ProductLiteVM()
-                                 {
-                                     ProductID = p.ProductId,
-                                     ProductName = p.ProductName,
-                                     Price = p.Price,
-                                     Stock = p.Stock
-                                 }).Take(10)
+            var data = repo.GetAllData(true);
+
+            if (!string.IsNullOrEmpty(query))
+            {
+                data = data.Where(p => p.ProductName.Contains(query));
+            }
+
+            ViewData.Model = data
+                                .Select(p => new ProductLiteVM()
+                                {
+                                    ProductID = p.ProductId,
+                                    ProductName = p.ProductName,
+                                    Price = p.Price,
+                                    Stock = p.Stock
+                                }).Take(10)
                                  .OrderByDescending(p => p.ProductID);
-            return View(data);
+            return View();
         }
 
         public ActionResult CreateProduct()

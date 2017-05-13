@@ -11,6 +11,13 @@
 
 <h2>ListProducts</h2>
 
+<form method="get">
+    商品名稱：
+    @Html.TextBox("query")
+    <button>Search</button>
+
+</form>
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
