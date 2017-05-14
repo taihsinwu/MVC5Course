@@ -12,12 +12,12 @@ namespace MVC5Course.Controllers
         {
             return View();
         }
-        //[SharedViewBag]
+        [SharedViewBag]
         [HandleError]
         public ActionResult About()
         {
             //ViewBag.Message = "Your application description page.";
-            throw new ArgumentException("Error Handle");
+            throw new ArgumentException("Error Handle"); //自訂例外錯誤
 
             return View();
         }
