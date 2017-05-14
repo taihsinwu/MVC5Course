@@ -28,26 +28,27 @@
         </tr>
 
         @{
-            var clients = Model.ToArray();
+            var items = Model.ToArray();
         }
 
-        @for (int i = 0; i < clients.Length; i++)
+        @for (int i = 0; i < items.Length; i++)
         {
             <tr>
                 <td>
-                    @Html.EditorFor(modelItem => clients[i].FirstName)
+                    @Html.HiddenFor(modelItem => items[i].ClientId)
+                    @Html.EditorFor(modelItem => items[i].FirstName)
                 </td>
                 <td>
-                    @Html.EditorFor(modelItem => clients[i].MiddleName)
+                    @Html.EditorFor(modelItem => items[i].MiddleName)
                 </td>
                 <td>
-                    @Html.EditorFor(modelItem => clients[i].LastName)
+                    @Html.EditorFor(modelItem => items[i].LastName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => clients[i].Gender)
+                    @Html.DisplayFor(modelItem => items[i].Gender)
                 </td>
                 <td>
-                    @Html.EditorFor(modelItem => clients[i].DateOfBirth)
+                    @Html.DisplayFor(modelItem => items[i].DateOfBirth)
                 </td>
             </tr>
         }

@@ -24,11 +24,11 @@ namespace MVC5Course.Controllers
         }
 
         [HttpPost]
-        public ActionResult BatchUpdate(ClientBatchUpdateVM[] clients)
+        public ActionResult BatchUpdate(ClientBatchUpdateVM[] items)
         {
             if (ModelState.IsValid)
             {
-                foreach (var item in clients)
+                foreach (var item in items)
                 {
                     var c = db.Client.Find(item.ClientId);
                     c.FirstName = item.FirstName;

@@ -14,6 +14,7 @@ namespace MVC5Course.Controllers
     public abstract class BaseController : Controller //設為abstract抽象類別
     {
         protected FabricsEntities db = new FabricsEntities();
+        [LocalOnly]
         public ActionResult Debug()
         {
             return Content("hi");

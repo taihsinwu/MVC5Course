@@ -12,17 +12,19 @@ namespace MVC5Course.Controllers
         {
             return View();
         }
-
+        //[SharedViewBag]
+        [HandleError]
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            //ViewBag.Message = "Your application description page.";
+            throw new ArgumentException("Error Handle");
 
             return View();
         }
-
+        [SharedViewBag]
         public ActionResult PartialAbout()
         {
-            ViewBag.Message = "Your application description page.";
+            //ViewBag.Message = "Your application description page.";
 
             if (Request.IsAjaxRequest()) //判斷是否有Ajax回應，只有MVC才能用
             {
