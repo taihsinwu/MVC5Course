@@ -1,0 +1,15 @@
+﻿@{ 
+    Layout = ""; //在view裡面不顯示layout或是顯示PartialView
+}
+
+@if (ViewBag.IsEnable)
+{
+    @:啟用
+    <text>啟用by Text</text>
+}
+else
+{
+    @:關閉
+    <text>關閉by Text</text>
+}
+

@@ -188,6 +188,7 @@
     <Compile Include="Controllers\HelloController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MetroController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="ActionFilter\SharedViewBagAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -288,15 +289,24 @@
   <ItemGroup>
     <Content Include="App_Data\Fabrics.mdf" />
     <Content Include="App_Data\Fabrics_log.ldf" />
+    <Content Include="calendar.html" />
+    <Content Include="chart.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\highlight.jpg" />
     <Content Include="favicon.ico" />
+    <Content Include="file-manager.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="form.html" />
+    <Content Include="gallery.html" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="icon.html" />
+    <Content Include="index.html" />
+    <Content Include="login.html" />
+    <Content Include="messages.html" />
     <Content Include="Models\EFGeneratePartialClass.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EFGeneratePartialClass.cs</LastGenOutput>
@@ -325,6 +335,14 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="submenu.html" />
+    <Content Include="submenu2.html" />
+    <Content Include="submenu3.html" />
+    <Content Include="table.html" />
+    <Content Include="tasks.html" />
+    <Content Include="typography.html" />
+    <Content Include="ui.html" />
+    <Content Include="widgets.html" />
     <EntityDeploy Include="Models\Fabrics.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Fabrics.Designer.cs</LastGenOutput>
@@ -332,6 +350,7 @@
     <Content Include="Models\Fabrics.edmx.diagram">
       <DependentUpon>Fabrics.edmx</DependentUpon>
     </Content>
+    <Content Include="README.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -401,6 +420,13 @@
     <Content Include="Views\EF\Details.cshtml" />
     <Content Include="Views\Shared\SuccessRedirect.cshtml" />
     <Content Include="Views\Clients\BatchUpdate.cshtml" />
+    <Content Include="Views\Shared\Error _DBUpdateException.cshtml" />
+    <Content Include="Views\Shared\DbEntityValidationException.cshtml" />
+    <Content Include="Views\Home\ViewTest.cshtml" />
+    <Content Include="Views\Home\RazorTest.cshtml" />
+    <Content Include="Views\Metro\Index.cshtml" />
+    <Content Include="Views\Metro\_ViewStart.cshtml" />
+    <Content Include="Views\Metro\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -411,7 +437,12 @@
     </Content>
     <None Include="Project_Readme.html" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="css\" />
+    <Folder Include="font\" />
+    <Folder Include="img\" />
+    <Folder Include="js\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
