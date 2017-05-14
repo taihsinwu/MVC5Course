@@ -13,5 +13,15 @@ namespace MVC5Course.Controllers
         {
             return View();
         }
+
+        public ActionResult Tasks()
+        {
+            return View();
+        }
+
+        public ActionResult Messages()
+        {
+            return View();
+        }
     }
 }
