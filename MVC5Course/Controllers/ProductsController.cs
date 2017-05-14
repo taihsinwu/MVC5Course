@@ -130,13 +130,19 @@ namespace MVC5Course.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult ListProducts(string query)
+        public ActionResult ListProducts(ProductList_SearchVM search)
         {
             var data = repo.GetAllData(true);
 
-            if (!string.IsNullOrEmpty(query))
+            if (ModelState.IsValid)
             {
-                data = data.Where(p => p.ProductName.Contains(query));
+                if (!string.IsNullOrEmpty(search.queryName))
+                {
+                    data = data.Where(p => p.ProductName.Contains(search.queryName));
+                }
+               
+                //data = data.Where(p => p.Price >= search.queryPrice);
+                data = data.Where(p => p.Stock > search.queryStockFrom && p.Stock < search.queryStockTo);
             }
 
             ViewData.Model = data

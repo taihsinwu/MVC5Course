@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MVC5Course.Models.Client>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MiddleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+        </tr>
+
+        @{
+            var clients = Model.ToArray();
+        }
+
+        @for (int i = 0; i < clients.Length; i++)
+        {
+            <tr>
+                <td>
+                    @Html.EditorFor(modelItem => clients[i].FirstName)
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => clients[i].MiddleName)
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => clients[i].LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => clients[i].Gender)
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => clients[i].DateOfBirth)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <button>批次更新</button>
+}

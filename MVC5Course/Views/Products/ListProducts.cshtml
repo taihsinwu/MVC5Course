@@ -13,7 +13,12 @@
 
 <form method="get">
     商品名稱：
-    @Html.TextBox("query")
+    @Html.TextBox("queryName")
+
+    <br />
+    庫　　存：
+    @Html.TextBox("queryStockFrom") ~ @Html.TextBox("queryStockTo")
+    <br />
     <button>Search</button>
 
 </form>
